@@ -10,6 +10,7 @@
 .vscode/
 # production
 /build
+/src/mock
 
 # misc
 .DS_Store
