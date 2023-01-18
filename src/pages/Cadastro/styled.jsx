@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const StyledContainerMain = styled.div`
+export const StyledMainContainerCadastro = styled.div`
     width: 100%;
     min-height: 100vh;
     background-color: #8c11be;
@@ -9,7 +9,7 @@ export const StyledContainerMain = styled.div`
     align-items: center;
 `;
 
-export const StyledContainerSecondary = styled.div`
+export const StyledSecondaryContainerCadastro = styled.div`
     width: 90%;
     display: flex;
     flex-direction: column;
@@ -30,7 +30,7 @@ export const StyledContainerSecondary = styled.div`
     }
 `;
 
-export const StyledFormLogin = styled.form`
+export const StyledFormCadastro = styled.form`
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -55,7 +55,7 @@ export const StyledFormLogin = styled.form`
     }
 `;
 
-export const StyledButtonSend = styled.button`
+export const StyledButtonSendCadastro = styled.button`
     width: 100%;
     height: 46px;
     background: #a328d6;
