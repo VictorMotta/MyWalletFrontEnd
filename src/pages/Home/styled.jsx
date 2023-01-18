@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const StyledMainContainerHome = styled.div`
     width: 100%;
     min-height: 100vh;
+    max-height: 100vh;
     background-color: #8c11be;
     display: flex;
     justify-content: center;

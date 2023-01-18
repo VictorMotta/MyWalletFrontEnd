@@ -10,6 +10,7 @@ export const StyledContainerRegistros = styled.div`
     align-items: center;
     border-radius: 5px;
     position: relative;
+
     h6 {
         font-family: "Raleway", sans-serif;
         font-weight: 400;
@@ -28,15 +29,23 @@ export const StyledContainerListRegistro = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+    overflow-y: scroll;
+    overflow-inline: hidden;
+    ::-webkit-scrollbar {
+        display: none;
+    }
 `;
 
 export const StyledContainerSaldoRegistros = styled.div`
     width: 90%;
+    height: 40px;
     position: absolute;
-    bottom: 10px;
+    bottom: 0px;
     display: flex;
     justify-content: space-between;
+    align-items: center;
     font-family: "Raleway", sans-serif;
+    background-color: #fff;
     h1 {
         font-weight: 700;
         font-size: 17px;
