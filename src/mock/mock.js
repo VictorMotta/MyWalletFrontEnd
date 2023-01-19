@@ -1,0 +1,51 @@
+export const listRegistros = [
+    {
+        id: 0,
+        descricao: "Almoço mãe",
+        valor: 39.9,
+        date: "30/11",
+        type: "saida",
+    },
+    {
+        id: 1,
+        descricao: "Mercado",
+        valor: 542.54,
+        date: "27/11",
+        type: "saida",
+    },
+    {
+        id: 2,
+        descricao: "Compras churrasco",
+        valor: 67.6,
+        date: "26/11",
+        type: "saida",
+    },
+    {
+        id: 3,
+        descricao: "Empréstimo Maria",
+        valor: 500.0,
+        date: "20/11",
+        type: "entrada",
+    },
+    {
+        id: 4,
+        descricao: "Salário",
+        valor: 3000.0,
+        date: "15/11",
+        type: "entrada",
+    },
+    {
+        id: 5,
+        descricao: "Almoço mãe",
+        valor: 39.9,
+        date: "30/11",
+        type: "saida",
+    },
+    {
+        id: 6,
+        descricao: "Almoço mãe",
+        valor: 39.9,
+        date: "30/11",
+        type: "saida",
+    },
+];

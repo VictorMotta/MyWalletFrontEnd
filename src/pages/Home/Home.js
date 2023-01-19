@@ -8,8 +8,11 @@ import {
 import { IoExitOutline } from "react-icons/io5";
 import { AiOutlinePlusCircle, AiOutlineMinusCircle } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
+import { useContext } from "react";
+import { AuthContext } from "../../contexts/auth";
 
 const Home = () => {
+    const { logout } = useContext(AuthContext);
     const navigate = useNavigate();
 
     return (
@@ -17,7 +20,7 @@ const Home = () => {
             <StyledSecondaryContainerHome>
                 <StyledMenuHome>
                     <h1>Olá, Fulano</h1>
-                    <IoExitOutline />
+                    <IoExitOutline onClick={logout} />
                 </StyledMenuHome>
                 <Registros />
                 <StyledContainerButtonsRegistros>
