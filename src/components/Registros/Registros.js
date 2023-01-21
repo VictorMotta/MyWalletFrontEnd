@@ -1,37 +1,53 @@
+import { AuthContext } from "../../contexts/auth";
 import Registro from "../Registro/Registro";
 import {
     StyledContainerRegistros,
     StyledContainerListRegistro,
     StyledContainerSaldoRegistros,
 } from "./styled";
-import { listRegistros } from "../../mock/mock";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
+import axios from "axios";
+import dayjs from "dayjs";
+import { BaseUrl } from "../../constants/urls";
 
-const Registros = () => {
-    const [list, setList] = useState(listRegistros);
+const Registros = ({ registers, setRegisters }) => {
+    const { user } = useContext(AuthContext);
     const [saldo, setSaldo] = useState(0);
+
     useEffect(() => {
-        let total = 0;
+        const config = {
+            headers: {
+                Authorization: `Bearer ${user.token}`,
+            },
+        };
+        const promisse = axios.get(`${BaseUrl}/registers`, config);
+        promisse.then((res) => {
+            const listRegisters = [...res.data];
+            const filterMonth = listRegisters.filter(
+                (register) => dayjs(register.date).format("MM") === dayjs(Date.now()).format("MM")
+            );
 
-        for (let i = 0; i < list.length; i++) {
-            if (list[i].type === "entrada") {
-                total += list[i].valor;
-            }
-            if (list[i].type === "saida") {
-                total -= list[i].valor;
-            }
-        }
+            const dataRegisters = filterMonth.map((register) => {
+                return {
+                    ...register,
+                    date: (register.date = dayjs(register.date).format("DD/MM")),
+                };
+            });
 
-        setSaldo(total);
-    }, [list]);
+            setRegisters(dataRegisters);
+        });
+        promisse.catch((err) => {
+            console.log(err.response.data);
+            alert(err.response.data);
+        });
+    }, []);
 
-    console.log(list);
     return (
         <StyledContainerRegistros>
-            {list ? (
+            {registers ? (
                 <StyledContainerListRegistro>
-                    {list.map((item) => (
-                        <Registro key={item.id} item={item} />
+                    {registers.map((item) => (
+                        <Registro key={item._id} item={item} saldo={saldo} setSaldo={setSaldo} />
                     ))}
                 </StyledContainerListRegistro>
             ) : (
@@ -39,7 +55,7 @@ const Registros = () => {
             )}
             <StyledContainerSaldoRegistros colorValorSaldo={saldo > 0 ? "#03AC00" : "#C70000"}>
                 <h1>SALDO</h1>
-                <span>{saldo}</span>
+                <span>{saldo.toFixed(2)}</span>
             </StyledContainerSaldoRegistros>
         </StyledContainerRegistros>
     );

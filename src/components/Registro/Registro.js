@@ -1,8 +1,19 @@
+import { useEffect } from "react";
 import { StyledContainerRegistro } from "./styled";
 
-const Registro = ({ item }) => {
-    const { descricao, valor, date, type } = item;
-    console.log(item);
+const Registro = ({ item, saldo, setSaldo }) => {
+    const { description, value, date, type } = item;
+
+    const valueNumber = Number(value).toFixed(2);
+
+    useEffect(() => {
+        if (type === "entrada") {
+            setSaldo((novoSaldo) => novoSaldo + Number(value));
+        }
+        if (type === "saida") {
+            setSaldo((novoSaldo) => novoSaldo - Number(value));
+        }
+    }, []);
 
     return (
         <>
@@ -12,8 +23,8 @@ const Registro = ({ item }) => {
                 }
             >
                 <span>{date}</span>
-                <h1>{descricao}</h1>
-                <p>{valor.toFixed(2)}</p>
+                <h1>{description}</h1>
+                <p>{valueNumber}</p>
             </StyledContainerRegistro>
         </>
     );

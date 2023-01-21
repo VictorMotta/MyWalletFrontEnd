@@ -9,7 +9,11 @@ import { useContext } from "react";
 
 function App() {
     const Private = ({ children }) => {
-        const { authenticated } = useContext(AuthContext);
+        const { authenticated, loading } = useContext(AuthContext);
+
+        if (loading) {
+            return <div>Carregando...</div>;
+        }
 
         if (!authenticated) {
             return <Navigate to='/' />;

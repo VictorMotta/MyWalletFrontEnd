@@ -7,17 +7,32 @@ import {
 } from "./styled.jsx";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../contexts/auth.js";
+import axios from "axios";
+import { BaseUrl } from "../../constants/urls.js";
 
 const Login = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState();
-    const { authenticated, login } = useContext(AuthContext);
+    const { login } = useContext(AuthContext);
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        const body = { email, password };
 
-        login(email, password);
-        console.log("submit", { email, password });
+        const promisse = axios.post(`${BaseUrl}/sign-in`, body);
+        promisse.then((res) => {
+            login(res.data);
+            console.log(res.data);
+        });
+        promisse.catch((err) => {
+            console.log(err.response.data);
+            if (err.response.data.message) {
+                return err.response.data.forEach((data) => {
+                    alert(data.message);
+                });
+            }
+            alert(err.response.data);
+        });
     };
 
     return (
