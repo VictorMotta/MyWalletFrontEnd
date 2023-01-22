@@ -10,9 +10,12 @@ import axios from "axios";
 import dayjs from "dayjs";
 import { BaseUrl } from "../../constants/urls";
 
-const Registros = ({ registers, setRegisters }) => {
+const Registros = () => {
     const { user } = useContext(AuthContext);
     const [saldo, setSaldo] = useState(0);
+    const [alternation, setAlternation] = useState(true);
+    const [registers, setRegisters] = useState([]);
+    console.log(registers);
 
     useEffect(() => {
         const config = {
@@ -40,22 +43,32 @@ const Registros = ({ registers, setRegisters }) => {
             console.log(err.response.data);
             alert(err.response.data);
         });
-    }, []);
+    }, [alternation]);
 
     return (
         <StyledContainerRegistros>
-            {registers ? (
+            {registers.length !== 0 ? (
                 <StyledContainerListRegistro>
                     {registers.map((item) => (
-                        <Registro key={item._id} item={item} saldo={saldo} setSaldo={setSaldo} />
+                        <Registro
+                            key={item._id}
+                            item={item}
+                            setSaldo={setSaldo}
+                            alternation={alternation}
+                            setAlternation={setAlternation}
+                        />
                     ))}
                 </StyledContainerListRegistro>
             ) : (
                 <h6>Não há Registros de entrada ou saída</h6>
             )}
             <StyledContainerSaldoRegistros colorValorSaldo={saldo > 0 ? "#03AC00" : "#C70000"}>
-                <h1>SALDO</h1>
-                <span>{saldo.toFixed(2)}</span>
+                {registers.length !== 0 && (
+                    <>
+                        <h1>SALDO</h1>
+                        <span>{saldo.toFixed(2)}</span>
+                    </>
+                )}
             </StyledContainerSaldoRegistros>
         </StyledContainerRegistros>
     );

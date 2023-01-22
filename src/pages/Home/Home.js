@@ -8,7 +8,7 @@ import {
 import { IoExitOutline } from "react-icons/io5";
 import { AiOutlinePlusCircle, AiOutlineMinusCircle } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { AuthContext } from "../../contexts/auth";
 import { BaseUrl } from "../../constants/urls";
 import axios from "axios";
@@ -16,7 +16,6 @@ import axios from "axios";
 const Home = () => {
     const { logout, user } = useContext(AuthContext);
     const navigate = useNavigate();
-    const [registers, setRegisters] = useState([]);
 
     const handleLogout = () => {
         const config = {
@@ -40,7 +39,7 @@ const Home = () => {
                     <h1>Olá, {user.name}</h1>
                     <IoExitOutline onClick={handleLogout} />
                 </StyledMenuHome>
-                <Registros registers={registers} setRegisters={setRegisters} />
+                <Registros />
                 <StyledContainerButtonsRegistros>
                     <button onClick={() => navigate("/nova-entrada")}>
                         <AiOutlinePlusCircle />

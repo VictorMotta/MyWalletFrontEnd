@@ -14,8 +14,8 @@ import { BaseUrl } from "../../constants/urls";
 const NovaEntrada = () => {
     const { user } = useContext(AuthContext);
     const navigate = useNavigate();
-    const [value, setValue] = useState();
-    const [description, setDescription] = useState();
+    const [value, setValue] = useState("");
+    const [description, setDescription] = useState("");
 
     const handleSubmit = (e) => {
         e.preventDefault();
