@@ -64,10 +64,10 @@ const Registros = () => {
             )}
             <StyledContainerSaldoRegistros colorValorSaldo={saldo > 0 ? "#03AC00" : "#C70000"}>
                 {registers.length !== 0 && (
-                    <>
+                    <span>
                         <h1>SALDO</h1>
-                        <span>{saldo.toFixed(2)}</span>
-                    </>
+                        <h3>{saldo.toFixed(2)}</h3>
+                    </span>
                 )}
             </StyledContainerSaldoRegistros>
         </StyledContainerRegistros>

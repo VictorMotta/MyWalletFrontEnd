@@ -31,18 +31,19 @@ export const StyledContainerListRegistro = styled.div`
     align-items: center;
     overflow-y: scroll;
     overflow-inline: hidden;
+    padding-bottom: 30px;
     ::-webkit-scrollbar {
         display: none;
     }
 `;
 
 export const StyledContainerSaldoRegistros = styled.div`
-    width: 90%;
+    width: 100%;
     height: 40px;
     position: absolute;
     bottom: 0px;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     font-family: "Raleway", sans-serif;
     background-color: #fff;
@@ -52,10 +53,16 @@ export const StyledContainerSaldoRegistros = styled.div`
         line-height: 20px;
         color: #000000;
     }
-    span {
+    h3 {
         font-weight: 400;
         font-size: 17px;
         line-height: 20px;
         color: ${(props) => props.colorValorSaldo};
+    }
+    span {
+        width: 90%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
     }
 `;
