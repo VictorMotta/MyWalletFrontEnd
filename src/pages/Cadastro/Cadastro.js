@@ -7,7 +7,7 @@ import {
 } from "./styled";
 import { useState } from "react";
 import axios from "axios";
-import { BaseUrl } from "../../constants/urls";
+import { REACT_APP_API_URL } from "../../constants/urls";
 
 const Cadastro = () => {
     const [name, setName] = useState("");
@@ -26,7 +26,7 @@ const Cadastro = () => {
             confirmPassword,
         };
 
-        const promisse = axios.post(`${BaseUrl}/sign-up`, body);
+        const promisse = axios.post(`${REACT_APP_API_URL}/sign-up`, body);
         promisse.then((res) => {
             navigate("/");
         });

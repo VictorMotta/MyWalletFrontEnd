@@ -1,12 +1,14 @@
 import { useContext, useEffect } from "react";
 import { StyledContainerRegistro } from "./styled";
-import { BaseUrl } from "../../constants/urls";
+import { REACT_APP_API_URL } from "../../constants/urls";
 import axios from "axios";
 import { AuthContext } from "../../contexts/auth";
+import { useNavigate } from "react-router-dom";
 
 const Registro = ({ item, setSaldo, alternation, setAlternation }) => {
     const { user } = useContext(AuthContext);
     const { _id, description, value, date, type } = item;
+    const navigate = useNavigate();
 
     const valueNumber = Number(value).toFixed(2);
 
@@ -22,7 +24,7 @@ const Registro = ({ item, setSaldo, alternation, setAlternation }) => {
             return null;
         }
 
-        const promisse = axios.delete(`${BaseUrl}/registers/${_id}`, config);
+        const promisse = axios.delete(`${REACT_APP_API_URL}/registers/${_id}`, config);
         promisse
             .then((res) => {
                 console.log(res.data);
@@ -37,6 +39,15 @@ const Registro = ({ item, setSaldo, alternation, setAlternation }) => {
             .catch((err) => {
                 console.log(err.response.data);
             });
+    };
+
+    const updateRegistro = () => {
+        if (type === "entrada") {
+            return navigate(`/editar-entrada/${_id}`);
+        }
+        if (type === "saida") {
+            return navigate(`/editar-saida/${_id}`);
+        }
     };
 
     useEffect(() => {
@@ -56,7 +67,7 @@ const Registro = ({ item, setSaldo, alternation, setAlternation }) => {
                 }
             >
                 <span>{date}</span>
-                <h1>{description}</h1>
+                <h1 onClick={updateRegistro}>{description}</h1>
                 <div>
                     <p>{valueNumber}</p>
                     <h6 onClick={deleteRegister}>x</h6>

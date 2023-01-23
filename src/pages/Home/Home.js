@@ -10,7 +10,7 @@ import { AiOutlinePlusCircle, AiOutlineMinusCircle } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../../contexts/auth";
-import { BaseUrl } from "../../constants/urls";
+import { REACT_APP_API_URL } from "../../constants/urls";
 import axios from "axios";
 
 const Home = () => {
@@ -23,7 +23,7 @@ const Home = () => {
                 Authorization: `Bearer ${user.token}`,
             },
         };
-        const promisse = axios.delete(`${BaseUrl}/logout`, config);
+        const promisse = axios.delete(`${REACT_APP_API_URL}/logout`, config);
         promisse.then((res) => {
             logout();
         });

@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import {
     StyledMainContainerNovaSaida,
     StyledSecondaryContainerNovaSaida,
@@ -11,18 +11,19 @@ import { AuthContext } from "../../contexts/auth";
 import axios from "axios";
 import { REACT_APP_API_URL } from "../../constants/urls";
 
-const NovaSaida = () => {
+const EditarEntrada = () => {
     const { user } = useContext(AuthContext);
     const navigate = useNavigate();
     const [value, setValue] = useState("");
     const [description, setDescription] = useState("");
+    const { id } = useParams();
 
     const handleSubmit = (e) => {
         e.preventDefault();
         const body = {
             description,
             value,
-            type: "saida",
+            type: "entrada",
         };
         const config = {
             headers: {
@@ -30,7 +31,7 @@ const NovaSaida = () => {
             },
         };
 
-        const promisse = axios.post(`${REACT_APP_API_URL}/registers`, body, config);
+        const promisse = axios.put(`${REACT_APP_API_URL}/registers/${id}`, body, config);
         promisse.then((res) => {
             console.log(res.data);
             navigate("/home");
@@ -43,7 +44,7 @@ const NovaSaida = () => {
     return (
         <StyledMainContainerNovaSaida>
             <StyledSecondaryContainerNovaSaida>
-                <h1>Nova saída</h1>
+                <h1>Editar Entrada</h1>
                 <StyledContainerFormNovaSaida onSubmit={handleSubmit}>
                     <input
                         type='number'
@@ -57,7 +58,7 @@ const NovaSaida = () => {
                         onChange={(e) => setDescription(e.target.value)}
                         value={description}
                     />
-                    <StyledButtonSendNovaSaida>Salvar saída</StyledButtonSendNovaSaida>
+                    <StyledButtonSendNovaSaida>Atualizar entrada</StyledButtonSendNovaSaida>
                 </StyledContainerFormNovaSaida>
                 <StyledButtonCancelNovaSaida onClick={() => navigate("/home")}>
                     Cancelar
@@ -67,4 +68,4 @@ const NovaSaida = () => {
     );
 };
 
-export default NovaSaida;
+export default EditarEntrada;

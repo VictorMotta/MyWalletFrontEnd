@@ -8,7 +8,7 @@ import {
 import { useContext, useState } from "react";
 import { AuthContext } from "../../contexts/auth.js";
 import axios from "axios";
-import { BaseUrl } from "../../constants/urls.js";
+import { REACT_APP_API_URL } from "../../constants/urls.js";
 
 const Login = () => {
     const [email, setEmail] = useState("");
@@ -19,7 +19,7 @@ const Login = () => {
         e.preventDefault();
         const body = { email, password };
 
-        const promisse = axios.post(`${BaseUrl}/sign-in`, body);
+        const promisse = axios.post(`${REACT_APP_API_URL}/sign-in`, body);
         promisse.then((res) => {
             login(res.data);
             console.log(res.data);

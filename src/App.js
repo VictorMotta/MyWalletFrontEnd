@@ -6,6 +6,8 @@ import NovaEntrada from "./pages/NovaEntrada/NovaEntrada.js";
 import NovaSaida from "./pages/NovaSaida/NovaSaida.js";
 import { AuthContext, AuthProvider } from "./contexts/auth.js";
 import { useContext } from "react";
+import EditarEntrada from "./pages/EditarEntrada/EditarEntrada.js";
+import EditarSaida from "./pages/EditarSaida/EditarSaida.js";
 
 function App() {
     const Private = ({ children }) => {
@@ -49,6 +51,22 @@ function App() {
                         element={
                             <Private>
                                 <NovaSaida />
+                            </Private>
+                        }
+                    />
+                    <Route
+                        path='/editar-entrada/:id'
+                        element={
+                            <Private>
+                                <EditarEntrada />
+                            </Private>
+                        }
+                    />
+                    <Route
+                        path='/editar-saida/:id'
+                        element={
+                            <Private>
+                                <EditarSaida />
                             </Private>
                         }
                     />

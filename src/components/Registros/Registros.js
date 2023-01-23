@@ -8,7 +8,7 @@ import {
 import { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import dayjs from "dayjs";
-import { BaseUrl } from "../../constants/urls";
+import { REACT_APP_API_URL } from "../../constants/urls";
 
 const Registros = () => {
     const { user } = useContext(AuthContext);
@@ -23,7 +23,7 @@ const Registros = () => {
                 Authorization: `Bearer ${user.token}`,
             },
         };
-        const promisse = axios.get(`${BaseUrl}/registers`, config);
+        const promisse = axios.get(`${REACT_APP_API_URL}/registers`, config);
         promisse.then((res) => {
             const listRegisters = [...res.data];
             const filterMonth = listRegisters.filter(

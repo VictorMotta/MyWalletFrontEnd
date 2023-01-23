@@ -9,7 +9,7 @@ import {
 import { useContext, useState } from "react";
 import { AuthContext } from "../../contexts/auth";
 import axios from "axios";
-import { BaseUrl } from "../../constants/urls";
+import { REACT_APP_API_URL } from "../../constants/urls";
 
 const NovaEntrada = () => {
     const { user } = useContext(AuthContext);
@@ -30,7 +30,7 @@ const NovaEntrada = () => {
             },
         };
 
-        const promisse = axios.post(`${BaseUrl}/registers`, body, config);
+        const promisse = axios.post(`${REACT_APP_API_URL}/registers`, body, config);
         promisse.then((res) => {
             console.log(res.data);
             navigate("/home");
