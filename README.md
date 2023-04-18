@@ -4,7 +4,7 @@ An easy to use financial manager. Track your revenues and expenses to learn how 
 
 <img src="./src/assets/gif_mywallet.gif" />
 
-Try it out now at https://link-to-my-project-deployed.herokuapp.com
+Try it out now at https://mywallet-victormotta.vercel.app/
 
 ## About
 
