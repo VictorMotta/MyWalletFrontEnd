@@ -37,6 +37,8 @@ The following tools and frameworks were used in the construction of the project:
 2. Clone the back-end repository at https://github.com/my-user/my-project-backend
 3. Follow instructions to run back-end at https://github.com/my-user/my-project-backend
 4. Install dependencies
+### NOTE: Start the backend first!
+### Backend link: https://github.com/VictorMotta/MyWalletBackEnd
 ```bash
 npm i
 ```
