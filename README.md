@@ -39,6 +39,7 @@ The following tools and frameworks were used in the construction of the project:
 4. Install dependencies
 #### NOTE: Start the backend first!
 #### Backend link: https://github.com/VictorMotta/MyWalletBackEnd
+
 ```bash
 npm i
 ```
