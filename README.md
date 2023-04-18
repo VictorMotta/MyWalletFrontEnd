@@ -45,16 +45,18 @@ The following tools and frameworks were used in the construction of the project:
 npm i
 ```
 
-5. Run the front-end with
+5.  Copy and paste the .env.example file,and alter name for .env. After the " = " paste the backend address that was passed in the backend directory (http://localhost:5000).
+
+6.  Run the front-end with
 
 ```bash
 npm start
 ```
 
-6. You can optionally build the project running
+7. You can optionally build the project running
 
 ```bash
 npm run build
 ```
 
-7. Finally access http://localhost:3000 on your favorite browser (unless it is Internet Explorer. In this case, review your life decisions)
+8. Finally access http://localhost:3000 on your favorite browser (unless it is Internet Explorer. In this case, review your life decisions)
