@@ -2,7 +2,7 @@
 
 An easy to use financial manager. Track your revenues and expenses to learn how you spend your money and know all the time how much you have.
 
-<img src="/assets/my-wallet-usage.gif" />
+<img src="./src/assets/gif_mywallet.gif" />
 
 Try it out now at https://link-to-my-project-deployed.herokuapp.com
 
@@ -19,7 +19,9 @@ This is an web application with which lots of people can manage their own expens
 By using this app any user can learn how they've been using their money and always keep track of your balance.
 
 ## Technologies
+
 The following tools and frameworks were used in the construction of the project:<br>
+
 <p>
   <img style='margin: 5px;' src='https://img.shields.io/badge/styled-components%20-%2320232a.svg?&style=for-the-badge&color=b8679e&logo=styled-components&logoColor=%3a3a3a'>
   <img style='margin: 5px;' src='https://img.shields.io/badge/axios%20-%2320232a.svg?&style=for-the-badge&color=informational'>
@@ -37,18 +39,25 @@ The following tools and frameworks were used in the construction of the project:
 2. Clone the back-end repository at https://github.com/my-user/my-project-backend
 3. Follow instructions to run back-end at https://github.com/my-user/my-project-backend
 4. Install dependencies
+
 #### NOTE: Start the backend first!
+
 #### Backend link: https://github.com/VictorMotta/MyWalletBackEnd
 
 ```bash
 npm i
 ```
+
 5. Run the front-end with
+
 ```bash
 npm start
 ```
+
 6. You can optionally build the project running
+
 ```bash
 npm run build
 ```
+
 7. Finally access http://localhost:3000 on your favorite browser (unless it is Internet Explorer. In this case, review your life decisions)
