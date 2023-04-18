@@ -12,6 +12,7 @@ This is an web application with which lots of people can manage their own expens
 
 - Sign Up
 - Login
+- Logout
 - List all financial events for a user
 - Add expense
 - Add revenue
